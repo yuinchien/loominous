@@ -3,9 +3,4 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => ({
   plugins: [sveltekit()],
-  resolve: {
-    alias: {
-      $static: mode === "production" ? "./static/" : "../..",
-    },
-  },
 }));

@@ -1,4 +1,5 @@
 import { c as create_ssr_component, a as setContext, v as validate_component, m as missing_component } from "./ssr.js";
+import "./environment.js";
 let base = "/loominous";
 let assets = base;
 const initial = { base, assets };
@@ -16,8 +17,6 @@ function set_public_env(environment) {
   public_env = environment;
 }
 function afterUpdate() {
-}
-function set_building() {
 }
 const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { stores } = $$props;
@@ -168,7 +167,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "4xt8ca"
+  version_hash: "rdqrmd"
 };
 function get_hooks() {
   return {};
@@ -178,7 +177,6 @@ export {
   base as b,
   set_public_env as c,
   set_assets as d,
-  set_building as e,
   get_hooks as g,
   options as o,
   public_env as p,

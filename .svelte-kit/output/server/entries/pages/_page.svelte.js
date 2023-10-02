@@ -1,4 +1,5 @@
-import { c as create_ssr_component, d as createEventDispatcher, f as add_attribute, h as each, e as escape, v as validate_component } from "../../chunks/ssr.js";
+import { c as create_ssr_component, d as createEventDispatcher, f as add_attribute, h as each, e as escape, i as add_classes, v as validate_component } from "../../chunks/ssr.js";
+import { v as version } from "../../chunks/environment.js";
 const Squares = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { pattern = [] } = $$props;
   let { classname = "" } = $$props;
@@ -62,7 +63,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     checklist: [],
     size: 20
   };
-  return `<div id="canvas"><div class="row"><div id="colorWarps" class="container borderless">${validate_component(Squares, "Squares").$$render(
+  return `<div id="lastUpdate"${add_classes("".trim())}>Updated ${escape(version)}</div> <div id="canvas"><div class="row"><div id="colorWarps" class="container borderless">${validate_component(Squares, "Squares").$$render(
     $$result,
     {
       pattern: PARAMS.colorWarps,

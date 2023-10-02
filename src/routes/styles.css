@@ -101,6 +101,24 @@ body {
     pointer-events: none;
 }
 
+#lastUpdate {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transition: .5s all;
+    transition-delay: 1s;
+    background-color: #eee;
+    color: #222;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    opacity: 0;
+}
+
+#lastUpdate.show {
+    opacity: 1;
+}
+
 .sticky {
     position: -webkit-sticky !important;
     /* Safari */

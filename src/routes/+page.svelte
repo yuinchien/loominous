@@ -1,12 +1,16 @@
 <script>
     import { onMount } from "svelte";
+    import {} from "svelte";
     import Squares from "$lib/Squares.svelte";
     import Circles from "$lib/Circles.svelte";
+    import { version as lastUpdate } from "$app/environment";
+    import { fade } from "svelte/transition";
 
     const convertColorIndex = ["a", "b", "c", "d"];
     let root;
     let patternList = [];
     let drawdown = [];
+    let show = false;
 
     patternList[0] =
         '{"v":0.1,"pattern":0,"colorA":"#222222","colorB":"#eeeeee","colorC":"#7f7f7f","colorD":"#444","shafts":4,"wefts":32,"warps":56,"tieups":4,"threading":[[1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,1,0,1,0,1,0,0,0,0,1,0,0,1,0,1,0],[0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0,1],[0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0]],"treadling":[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1],[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1],[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,0],[0,0,0,1],[0,0,1,0]],"tieup":[[1,1,0,0],[0,1,1,0],[0,0,1,1],[1,0,0,1]],"colorWefts":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"colorWarps":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"checklist":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"size":20}';
@@ -43,6 +47,10 @@
 
     onMount(() => {
         root = document.documentElement;
+        show = true;
+        setTimeout(function () {
+            show = false;
+        }, 8000);
         import("tweakpane").then((module) => {
             if (pane) {
                 pane.dispose();
@@ -352,6 +360,9 @@
     };
 </script>
 
+<div id="lastUpdate" class:show>
+    Updated {lastUpdate}
+</div>
 <div id="canvas">
     <div class="row">
         <div id="colorWarps" class="container borderless">

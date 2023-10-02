@@ -143,6 +143,9 @@ function add_attribute(name, value, boolean) {
   const assignment = boolean && value === true ? "" : `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
+function add_classes(classes) {
+  return classes ? ` class="${classes}"` : "";
+}
 export {
   setContext as a,
   subscribe as b,
@@ -152,6 +155,7 @@ export {
   add_attribute as f,
   getContext as g,
   each as h,
+  add_classes as i,
   missing_component as m,
   noop as n,
   safe_not_equal as s,
