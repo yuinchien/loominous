@@ -51,16 +51,17 @@
         setTimeout(function () {
             show = false;
         }, 8000);
-        import("tweakpane").then((module) => {
-            if (pane) {
-                pane.dispose();
-            }
-            pane = new module.Pane();
-            folder = pane.addFolder({
-                title: "Settings",
-            });
-            init();
-        });
+        // import("tweakpane").then((module) => {
+        //     if (pane) {
+        //         pane.dispose();
+        //     }
+        //     pane = new module.Pane();
+        //     folder = pane.addFolder({
+        //         title: "Settings",
+        //     });
+        //     init();
+        // });
+        init();
     });
 
     const updateLocalStorage = () => {
@@ -71,22 +72,7 @@
         PARAMS = PARAMS;
         updateLocalStorage();
     };
-    const init = () => {
-        const preset = window.localStorage.getItem("preset");
-        console.log("preset", preset);
-        console.log("PARAMS", PARAMS.shafts);
-        let flagUseLocalStorage = false;
-        if (preset != null) {
-            const data = JSON.parse(preset);
-            if (data.v == PARAMS.v) {
-                flagUseLocalStorage = true;
-                window.localStorage.clear();
-            }
-        }
-        PARAMS = flagUseLocalStorage
-            ? JSON.parse(preset)
-            : JSON.parse(patternList[0]);
-
+    const initPane = () => {
         const inputPattern = folder.addBlade({
             view: "list",
             label: "pattern",
@@ -282,6 +268,24 @@
             updateLocalStorage();
             location.reload();
         });
+    };
+    const init = () => {
+        const preset = window.localStorage.getItem("preset");
+        console.log("preset", preset);
+        console.log("PARAMS", PARAMS.shafts);
+        let flagUseLocalStorage = false;
+        if (preset != null) {
+            const data = JSON.parse(preset);
+            if (data.v == PARAMS.v) {
+                flagUseLocalStorage = true;
+                window.localStorage.clear();
+            }
+        }
+        PARAMS = flagUseLocalStorage
+            ? JSON.parse(preset)
+            : JSON.parse(patternList[0]);
+
+        // initPane();
 
         root.style.setProperty("--color-a", PARAMS.colorA);
         root.style.setProperty("--color-b", PARAMS.colorB);
