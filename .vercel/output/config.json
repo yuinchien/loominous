@@ -2,6 +2,17 @@
 	"version": 3,
 	"routes": [
 		{
+			"src": "/loominous/",
+			"dest": "/loominous"
+		},
+		{
+			"src": "/loominous",
+			"status": 308,
+			"headers": {
+				"Location": "/loominous/"
+			}
+		},
+		{
 			"src": "/loominous/_app/immutable/.+",
 			"headers": {
 				"cache-control": "public, immutable, max-age=31536000"
@@ -15,5 +26,9 @@
 			"dest": "/fn"
 		}
 	],
-	"overrides": {}
+	"overrides": {
+		"index.html": {
+			"path": "loominous"
+		}
+	}
 }
