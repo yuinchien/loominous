@@ -147,17 +147,17 @@ function add_classes(classes) {
   return classes ? ` class="${classes}"` : "";
 }
 export {
-  createEventDispatcher as a,
-  add_attribute as b,
+  setContext as a,
+  subscribe as b,
   create_ssr_component as c,
-  each as d,
+  createEventDispatcher as d,
   escape as e,
-  add_classes as f,
+  add_attribute as f,
   getContext as g,
-  setContext as h,
-  safe_not_equal as i,
+  each as h,
+  add_classes as i,
   missing_component as m,
   noop as n,
-  subscribe as s,
+  safe_not_equal as s,
   validate_component as v
 };

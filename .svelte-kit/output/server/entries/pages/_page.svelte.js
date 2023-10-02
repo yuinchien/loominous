@@ -1,4 +1,4 @@
-import { c as create_ssr_component, a as createEventDispatcher, b as add_attribute, d as each, e as escape, f as add_classes, v as validate_component } from "../../chunks/ssr.js";
+import { c as create_ssr_component, d as createEventDispatcher, f as add_attribute, h as each, e as escape, i as add_classes, v as validate_component } from "../../chunks/ssr.js";
 import { v as version } from "../../chunks/environment.js";
 const Squares = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { pattern = [] } = $$props;
