@@ -1,10 +1,8 @@
 <script>
     import { onMount } from "svelte";
-    import {} from "svelte";
     import Squares from "$lib/Squares.svelte";
     import Circles from "$lib/Circles.svelte";
     import { version as lastUpdate } from "$app/environment";
-    import { fade } from "svelte/transition";
 
     const convertColorIndex = ["a", "b", "c", "d"];
     let root;

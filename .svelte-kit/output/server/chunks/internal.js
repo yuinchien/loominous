@@ -1,6 +1,6 @@
 import { c as create_ssr_component, a as setContext, v as validate_component, m as missing_component } from "./ssr.js";
 import "./environment.js";
-let base = "/loominous";
+let base = "";
 let assets = base;
 const initial = { base, assets };
 function reset() {
