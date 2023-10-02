@@ -1,4 +1,4 @@
-import { c as create_ssr_component, a as setContext, v as validate_component, m as missing_component } from "./ssr.js";
+import { c as create_ssr_component, h as setContext, v as validate_component, m as missing_component } from "./ssr.js";
 import "./environment.js";
 let base = "";
 let assets = base;

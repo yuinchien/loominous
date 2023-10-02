@@ -49,17 +49,16 @@
         setTimeout(function () {
             show = false;
         }, 8000);
-        // import("tweakpane").then((module) => {
-        //     if (pane) {
-        //         pane.dispose();
-        //     }
-        //     pane = new module.Pane();
-        //     folder = pane.addFolder({
-        //         title: "Settings",
-        //     });
-        //     init();
-        // });
-        init();
+        import("tweakpane").then((module) => {
+            if (pane) {
+                pane.dispose();
+            }
+            pane = new module.Pane();
+            folder = pane.addFolder({
+                title: "Settings",
+            });
+            init();
+        });
     });
 
     const updateLocalStorage = () => {
@@ -283,7 +282,7 @@
             ? JSON.parse(preset)
             : JSON.parse(patternList[0]);
 
-        // initPane();
+        initPane();
 
         root.style.setProperty("--color-a", PARAMS.colorA);
         root.style.setProperty("--color-b", PARAMS.colorB);
