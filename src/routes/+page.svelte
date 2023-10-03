@@ -254,7 +254,6 @@
                         );
                     }
                 }
-                PARAMS.tieup = PARAMS.tieup;
                 updateAll();
             }, 300);
         });
@@ -268,20 +267,7 @@
     };
     const init = () => {
         const preset = window.localStorage.getItem("preset");
-        console.log("preset", preset);
-        console.log("PARAMS", PARAMS.shafts);
-        let flagUseLocalStorage = false;
-        if (preset != null) {
-            const data = JSON.parse(preset);
-            if (data.v == PARAMS.v) {
-                flagUseLocalStorage = true;
-                window.localStorage.clear();
-            }
-        }
-        PARAMS = flagUseLocalStorage
-            ? JSON.parse(preset)
-            : JSON.parse(patternList[0]);
-
+        PARAMS = preset ? JSON.parse(preset) : JSON.parse(patternList[0]);
         initPane();
 
         root.style.setProperty("--color-a", PARAMS.colorA);
@@ -402,7 +388,7 @@
     </div>
     <div class="row">
         <div id="drawdown" class="container borderless">
-            {#each drawdown as list, i}
+            {#each drawdown as list (list)}
                 <Squares
                     pattern={list}
                     classname="row reverse"
